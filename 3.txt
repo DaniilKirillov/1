@@ -1,0 +1,42 @@
+#include <iostream> 
+using namespace std; 
+void build_ziggurat(int n, int **Ziggurat) { 
+	for (int i = 0; i < n; i++) { 
+		for (int j = 0; j < n; j++) { 
+			cin >> Ziggurat[i][j]; 
+		} 
+	} 
+	for (int i = 0; i < n; i++) { 
+		for (int j = 0; j< n; j++) { 
+			if (i < n/2 && j < n/2) { 
+				if (i <= j) cout << i + 1 << " "; 
+				else cout << j + 1 << " "; 
+			} 
+			else if (i >= n/2 && j >= n/2) { 
+				if (i <= j) cout << n - j << " "; 
+				else cout << n - i << " "; 
+			} 
+			else if (i >= n/2 && j < n/2) { 
+				if (n - i > j) 
+				cout << j+1 << " "; 
+				else cout << n - i << " "; 
+			} 
+			else if (i < n/2 && j >= n/2) { 
+				if (n-j > i) cout << i+1 << " "; 
+				else cout << n-j << " "; 
+			} 
+		} 
+		cout << endl; 
+	} 
+} 
+int main () { 
+	int n; 
+	cin >> n; 
+	int **Ziggurat; 
+	Ziggurat = new int *[n]; 
+	for (int i = 0; i < n; i++) { 
+		Ziggurat[i] = new int [n]; 
+	} 
+	build_ziggurat(n, Ziggurat); 
+	return 0; 
+}

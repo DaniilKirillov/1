@@ -1,0 +1,19 @@
+#include <iostream> 
+#include <cmath> 
+using namespace std; 
+int strange_sum(int *arr, int n, int start) { 
+	if (n - start == 1) { 
+		return arr[start]; 
+	} 
+	return strange_sum(arr, (start+n)/2, start) + strange_sum(arr, n, (start+n)/2); 
+	} 
+int main() { 
+	int n; 
+	cin >> n; 
+	int *arr = new int [n]; 
+	for (int i = 0; i < n; i++) { 
+		cin >> arr[i]; 
+	} 
+	cout << strange_sum(arr, n, 0); 
+	return 0; 
+}

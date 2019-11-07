@@ -1,0 +1,37 @@
+#include <iostream> 
+using namespace std; 
+int strange_multiply(int a, int b) { 
+	if (b > 0) { 
+		int m = a, n = 0; 
+		while (n < b - 1) { 
+			a = a + m; 
+			n++; 
+		} 
+		return a; 
+	} 
+	else if (b == 0) return 0; 
+	else if (b < 0) { 
+		if (a >= 0) { 
+			int n = 0, m = a; 
+			while (n > b + 1) { 
+				a = a + m; 
+				n--; 
+			} 
+		return -a; 
+		} 
+		else if (a < 0) { 
+			int n = 0, m = a; 
+			while (n > b + 1) { 
+				a = a + m; 
+				n--; 
+			} 
+			return -a; 
+		} 
+	} 
+} 
+int main () { 
+	int k, p; 
+	cin >> k >> p; 
+	cout << strange_multiply(k, p); 
+	return 0; 
+}
